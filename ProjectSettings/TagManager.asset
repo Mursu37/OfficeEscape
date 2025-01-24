@@ -3,12 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Worker
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Worker
   - Water
   - UI
   - 

@@ -252,6 +252,7 @@ GameObject:
   - component: {fileID: 423742522}
   - component: {fileID: 423742521}
   - component: {fileID: 423742520}
+  - component: {fileID: 423742523}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -327,12 +328,56 @@ Transform:
   m_GameObject: {fileID: 423742519}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 1.22, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &423742523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423742519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &552199100
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,6 +785,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8011918277651261646, guid: 7698a8fa0471744ed8a6b6ac1dfa7296,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6452266432751415832, guid: 7698a8fa0471744ed8a6b6ac1dfa7296,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -5751456512389764109, guid: 7698a8fa0471744ed8a6b6ac1dfa7296,
         type: 3}
       propertyPath: m_Materials.Array.size
@@ -755,6 +810,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: -3286910004361259421, guid: 7698a8fa0471744ed8a6b6ac1dfa7296,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -1448402454934866964, guid: 7698a8fa0471744ed8a6b6ac1dfa7296,
         type: 3}
       propertyPath: m_Materials.Array.size
@@ -765,10 +825,40 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: f16f3a9befe4a3c4ead46fbe5f55492d, type: 2}
+    - target: {fileID: -741832106251744268, guid: 7698a8fa0471744ed8a6b6ac1dfa7296,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -259972160606440404, guid: 7698a8fa0471744ed8a6b6ac1dfa7296,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7698a8fa0471744ed8a6b6ac1dfa7296,
         type: 3}
       propertyPath: m_Name
       value: OE_Character_01_ANIM
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7698a8fa0471744ed8a6b6ac1dfa7296,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147582051511559177, guid: 7698a8fa0471744ed8a6b6ac1dfa7296,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583283331389334309, guid: 7698a8fa0471744ed8a6b6ac1dfa7296,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752888019504437126, guid: 7698a8fa0471744ed8a6b6ac1dfa7296,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

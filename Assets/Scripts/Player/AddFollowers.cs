@@ -20,14 +20,17 @@ public class AddFollowers : MonoBehaviour
     public void HandleFollower(GameObject follower)
     {
         float distanceToPlayer = Vector3.Distance(transform.position, follower.transform.position);
+        var outline = follower.GetComponent<Outline>();
         if (distanceToPlayer < 2f)
         {
             RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, LayerMask.GetMask("Worker")))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, 
+                    LayerMask.GetMask("Worker", "Outlined")))
             {
                 hold.gameObject.SetActive(true);
                 if (Input.GetButton("Fire1"))
                 {
+                    outline.AddOutline();
                     holdTime += Time.deltaTime;
                     holdFill.fillAmount = holdTime;
                     if (holdTime >= 1f)
@@ -36,17 +39,24 @@ public class AddFollowers : MonoBehaviour
                         holdTime = 0f;
                         holdFill.fillAmount = 0f;
                         hold.gameObject.SetActive(false);
+                        outline.RemoveOutline();
                     }
                 }
                 else
                 {
                     holdTime = 0f;
+                    outline.RemoveOutline();
                 }
             }
             else
             {
                 hold.gameObject.SetActive(false);
+                outline.RemoveOutline();
             }
+        }
+        else
+        {
+            outline.RemoveOutline();
         }
     }
 }

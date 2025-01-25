@@ -23,7 +23,7 @@ public class RemainingWorkers : MonoBehaviour
 
         if (addFollowers.followers.Count >= maxWorkers)
         {
-            canUseElevator |= true;
+            canUseElevator = true;
         }
     }
 }

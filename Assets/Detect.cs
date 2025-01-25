@@ -9,12 +9,20 @@ public class Detect : MonoBehaviour
     public LayerMask obstacleLayer;
 
     private bool playerDetected = false;
+    private Vector3 lastPlayerPosition;
+    private float movementThreshold = 0.1f;
+
+    void Start()
+    {
+        lastPlayerPosition = player.position;
+    }
 
     void Update()
     {
         float distance = Vector3.Distance(transform.position, player.position);
+        bool isPlayerMoving = Vector3.Distance(player.position, lastPlayerPosition) > movementThreshold;
 
-        if (distance < detectionDistance)
+        if (distance < detectionDistance && isPlayerMoving)
         {
             Vector3 directionToPlayer = (player.position - transform.position).normalized;
             if (!Physics.Raycast(transform.position, directionToPlayer, detectionDistance, obstacleLayer))
@@ -28,10 +36,12 @@ public class Detect : MonoBehaviour
                 }
             }
         }
-        else
+        else if (distance >= detectionDistance || Physics.Raycast(transform.position, (player.position - transform.position).normalized, detectionDistance, obstacleLayer))
         {
             playerDetected = false;
         }
+
+        lastPlayerPosition = player.position;
     }
 
     private void SmoothLookAt(Vector3 targetPosition)

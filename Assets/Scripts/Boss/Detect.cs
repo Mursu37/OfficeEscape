@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
 public class Detect : MonoBehaviour
@@ -8,6 +9,8 @@ public class Detect : MonoBehaviour
     public Transform player;
     public LayerMask obstacleLayer;
     [SerializeField] private AddFollowers addFollowers;
+    [SerializeField] private GameObject gameOver;
+    [SerializeField] private Movement movement;
 
     private bool playerDetected = false;
 
@@ -20,7 +23,6 @@ public class Detect : MonoBehaviour
             Vector3 directionToPlayer = (player.position - transform.position).normalized;
             if (!Physics.Raycast(transform.position, directionToPlayer, detectionDistance, obstacleLayer))
             {
-                Debug.Log("Player detected");
                 SmoothLookAt(player.position);
 
                 if (!playerDetected)
@@ -38,7 +40,6 @@ public class Detect : MonoBehaviour
                         Vector3 directionToFollower = (follower.transform.position - transform.position).normalized;
                         if (!Physics.Raycast(transform.position, directionToFollower, detectionDistance, obstacleLayer))
                         {
-                            Debug.Log("Follower detected");
                             SmoothLookAt(follower.transform.position);
 
                             if (!playerDetected)
@@ -64,5 +65,8 @@ public class Detect : MonoBehaviour
     private void EndGame()
     {
         Debug.Log("Player detected! Game Over.");
+        gameOver.SetActive(true);
+        movement.enabled = false;
+        Time.timeScale = 0f;
     }
 }

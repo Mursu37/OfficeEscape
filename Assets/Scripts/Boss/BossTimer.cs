@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class BossTimer : MonoBehaviour
 {
+    [SerializeField] private Animator doorAnimator;
     [SerializeField] private TextMeshProUGUI timer;
     [SerializeField] private float remainingTime;
-    [SerializeField] private GameObject door;
     [SerializeField] private float detectTime = 3f;
     [SerializeField] private AudioSource normalMusic;
     [SerializeField] private AudioSource bossMusic;
@@ -18,6 +18,7 @@ public class BossTimer : MonoBehaviour
     [SerializeField] private AudioClip[] bossAngryClips;
 
     private Detect detect;
+    private Animator animator;
 
     bool hasPlayedDoorOpen = false;
     bool hasPlayedBossAngry = false;
@@ -26,6 +27,8 @@ public class BossTimer : MonoBehaviour
     void Start()
     {
         detect = GetComponent<Detect>();
+        animator = GetComponent<Animator>();
+        animator.Play("Leave", 0, 1f);
         detectTime = 3f;
     }
 
@@ -41,7 +44,6 @@ public class BossTimer : MonoBehaviour
         else
         {
             timer.text = 0f.ToString();
-            door.SetActive(false);
             detect.enabled = true;
             if(!normalMusic.isPlaying) normalMusic.Stop();
             if(!bossMusic.isPlaying) bossMusic.Play();
@@ -52,6 +54,8 @@ public class BossTimer : MonoBehaviour
                 {
                     bossAngry.clip = bossAngryClips[Random.Range(0, bossAngryClips.Length)];
                     bossAngry.Play();
+                    animator.Play("Peek");
+                    doorAnimator.Play("SlamOpen");
                     hasPlayedBossAngry = true;
                 }
 
@@ -65,9 +69,10 @@ public class BossTimer : MonoBehaviour
             }
             else
             {
+                animator.Play("Leave");
+                doorAnimator.Play("CloseSlam");
                 bossMusic.Stop();
                 normalMusic.Play();
-                door.SetActive(true);
                 detect.enabled = false;
                 doorSlam.Play();
                 remainingTime = 10f;

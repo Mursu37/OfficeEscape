@@ -1,22 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 public class Detect : MonoBehaviour
 {
-    public Transform player; 
+    public float detectionDistance = 8f; // Detection range
+    public Transform player;
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, player.position) < 8f) // Detection range
+        float distance = Vector3.Distance(this.transform.position, player.position);
+
+        if (distance < detectionDistance)
         {
-            // Rotate to look at the player
             transform.LookAt(player);
+
+            EndGame();
         }
     }
 
-    // Optional: Debugging using OnTriggerStay
+    
+    private void EndGame()
+    {
+        Debug.Log("Player detected! Game Over.");
+
+        // Uncomment the line below to load a game over scene
+        // SceneManager.LoadScene("GameOverScene");
+
+        // Or 
+        // Application.Quit();
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.name == "Player")

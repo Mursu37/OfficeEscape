@@ -2,29 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Detect :
-public transform Player;
+public class Detect : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    void OnTriggerStay(Collider collider)
-    {
-        // Debug.Log("Find");
-        if (col.gameObject.name == "player")
-        {
-            transform.LookAt(player);
-            transform.Translate(0, 0, 0.3f);
-        }
-
-    }
+    public Transform player; 
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Vector3.Distance(transform.position, player.position) < 8f) // Detection range
+        {
+            // Rotate to look at the player
+            transform.LookAt(player);
+        }
+    }
+
+    // Optional: Debugging using OnTriggerStay
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.name == "Player")
+        {
+            Debug.Log("Player detected!");
+        }
     }
 }

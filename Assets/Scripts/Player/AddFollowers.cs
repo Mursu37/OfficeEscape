@@ -12,11 +12,14 @@ public class AddFollowers : MonoBehaviour
 
     [SerializeField] private AudioSource popping;
 
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         followers = new List<GameObject>();
         holdTime = 0f;
+        animator = GetComponent<Animator>();
     }
 
     public void HandleFollower(GameObject follower)
@@ -39,8 +42,10 @@ public class AddFollowers : MonoBehaviour
                     outline.AddOutline();
                     holdTime += Time.deltaTime;
                     holdFill.fillAmount = holdTime;
+                    animator.SetBool("IsTalking", true);
                     if (holdTime >= 1f)
                     {
+                        animator.SetBool("IsTalking", false);
                         followers.Add(follower);
                         holdTime = 0f;
                         holdFill.fillAmount = 0f;

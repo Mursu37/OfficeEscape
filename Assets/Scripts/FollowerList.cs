@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FollowerList : MonoBehaviour
 {
-    [SerializeField] public List<GameObject> followers;
+    public List<GameObject> followers;
 
     // Start is called before the first frame update
     void Start()

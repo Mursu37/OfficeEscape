@@ -32,10 +32,10 @@ public class AddFollowers : MonoBehaviour
                 hold.gameObject.SetActive(true);
                 if (Input.GetButton("Fire1"))
                 {
-                    if (popping != null && !popping.isPlaying)
-                    {
-                        popping.Play();
-                    }
+                    //if (popping != null && !popping.isPlaying)
+                    //{
+                    //    popping.Play();
+                    //}
                     outline.AddOutline();
                     holdTime += Time.deltaTime;
                     holdFill.fillAmount = holdTime;
@@ -52,20 +52,20 @@ public class AddFollowers : MonoBehaviour
                 {
                     holdTime = 0f;
                     outline.RemoveOutline();
-                    popping.Stop();
+                    //popping.Stop();
                 }
             }
             else
             {
                 hold.gameObject.SetActive(false);
                 outline.RemoveOutline();
-                if(popping.isPlaying) popping.Stop();
+                //if(popping.isPlaying) popping.Stop();
             }
         }
         else
         {
             outline.RemoveOutline();
-            if(popping.isPlaying) popping.Stop();
+            //if(popping.isPlaying) popping.Stop();
         }
     }
 }

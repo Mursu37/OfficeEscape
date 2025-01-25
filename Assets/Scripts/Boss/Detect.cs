@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Player;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Detect : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class Detect : MonoBehaviour
 
     private bool playerDetected = false;
 
+    private void Start()
+    {
+        enabled = false;
+    }
+
     void Update()
     {
         float distance = Vector3.Distance(transform.position, player.position);
@@ -23,7 +29,6 @@ public class Detect : MonoBehaviour
             Vector3 directionToPlayer = (player.position - transform.position).normalized;
             if (!Physics.Raycast(transform.position, directionToPlayer, detectionDistance, obstacleLayer))
             {
-                SmoothLookAt(player.position);
 
                 if (!playerDetected)
                 {
@@ -40,7 +45,6 @@ public class Detect : MonoBehaviour
                         Vector3 directionToFollower = (follower.transform.position - transform.position).normalized;
                         if (!Physics.Raycast(transform.position, directionToFollower, detectionDistance, obstacleLayer))
                         {
-                            SmoothLookAt(follower.transform.position);
 
                             if (!playerDetected)
                             {
@@ -52,14 +56,6 @@ public class Detect : MonoBehaviour
                 }
             }
         }
-    }
-
-    private void SmoothLookAt(Vector3 targetPosition)
-    {
-        Vector3 direction = targetPosition - transform.position;
-        direction.y = 0;
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
     }
 
     private void EndGame()

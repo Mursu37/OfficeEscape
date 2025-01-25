@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a219da6926ba5428db7eb6ded7655c92
+guid: c93d763cba00c4f4796606381c9fed5c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: color_material
+      name: BasicMaterial.001
     second: {fileID: 2100000, guid: 45f756d37388844fda9bf5de663b0654, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: gradient_emission
-    second: {fileID: 2100000, guid: d9696ee0e33124969bda0912b084e959, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

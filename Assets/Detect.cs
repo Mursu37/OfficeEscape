@@ -7,26 +7,20 @@ public class Detect : MonoBehaviour
     public float detectionDistance = 8f;
     public Transform player;
     public LayerMask obstacleLayer;
+    [SerializeField] private AddFollowers addFollowers;
 
     private bool playerDetected = false;
-    private Vector3 lastPlayerPosition;
-    private float movementThreshold = 0.1f;
-
-    void Start()
-    {
-        lastPlayerPosition = player.position;
-    }
 
     void Update()
     {
         float distance = Vector3.Distance(transform.position, player.position);
-        bool isPlayerMoving = Vector3.Distance(player.position, lastPlayerPosition) > movementThreshold;
 
-        if (distance < detectionDistance && isPlayerMoving)
+        if (distance < detectionDistance)
         {
             Vector3 directionToPlayer = (player.position - transform.position).normalized;
             if (!Physics.Raycast(transform.position, directionToPlayer, detectionDistance, obstacleLayer))
             {
+                Debug.Log("Player detected");
                 SmoothLookAt(player.position);
 
                 if (!playerDetected)
@@ -35,13 +29,28 @@ public class Detect : MonoBehaviour
                     playerDetected = true;
                 }
             }
-        }
-        else if (distance >= detectionDistance || Physics.Raycast(transform.position, (player.position - transform.position).normalized, detectionDistance, obstacleLayer))
-        {
-            playerDetected = false;
-        }
+            else
+            {
+                foreach (GameObject follower in addFollowers.followers)
+                {
+                    if (follower != null)
+                    {
+                        Vector3 directionToFollower = (follower.transform.position - transform.position).normalized;
+                        if (!Physics.Raycast(transform.position, directionToFollower, detectionDistance, obstacleLayer))
+                        {
+                            Debug.Log("Follower detected");
+                            SmoothLookAt(follower.transform.position);
 
-        lastPlayerPosition = player.position;
+                            if (!playerDetected)
+                            {
+                                EndGame();
+                                playerDetected = true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private void SmoothLookAt(Vector3 targetPosition)

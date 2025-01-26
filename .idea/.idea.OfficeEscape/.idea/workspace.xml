@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2531caa7-4fae-4893-b007-a745467cd77a" name="Changes" comment="" />
+    <list default="true" id="2531caa7-4fae-4893-b007-a745467cd77a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/ElevatorAnimations.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/ElevatorAnimations.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/JesseTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/JesseTest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity-Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity-Renderer.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

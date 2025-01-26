@@ -19,17 +19,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'OE_Character_01|Boss_Leave' has import animation
-      warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'mixamorig:RightArm' has scale
-      animation that will be discarded.\n\t'mixamorig:LeftUpLeg' has translation
-      animation that will be discarded.\n\t'mixamorig:RightUpLeg' has translation
-      animation that will be discarded.\n\nClip 'OE_Character_01|Boss_Peek' has import
-      animation warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'mixamorig:RightShoulder'
-      has scale animation that will be discarded.\n\t'mixamorig:RightArm' has scale
-      animation that will be discarded.\n\t'mixamorig:LeftUpLeg' has translation
-      animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -43,8 +33,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: OE_Character_01|T-pose
-      takeName: OE_Character_01|T-pose
+      name: T-pose
+      takeName: T-pose
       internalID: -6713578975350427737
       firstFrame: 0
       lastFrame: 2
@@ -72,8 +62,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: OE_Character_01|Walking
-      takeName: OE_Character_01|Walking
+      name: Walking
+      takeName: Walking
       internalID: 5162912159634307201
       firstFrame: 0
       lastFrame: 31
@@ -101,8 +91,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: OE_Character_01|Talking_Fast
-      takeName: OE_Character_01|Talking_Fast
+      name: Talking_Fast
+      takeName: Talking_Fast
       internalID: 4320671059943580636
       firstFrame: 0
       lastFrame: 355
@@ -130,8 +120,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: OE_Character_01|Happy_Idle_001
-      takeName: OE_Character_01|Happy_Idle_001
+      name: Happy_Idle_001
+      takeName: Happy_Idle_001
       internalID: 6288014657968505412
       firstFrame: 0
       lastFrame: 114
@@ -159,8 +149,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: OE_Character_01|Idle_Normal_001
-      takeName: OE_Character_01|Idle_Normal_001
+      name: Idle_Normal_001
+      takeName: Idle_Normal_001
       internalID: -6394960343366761419
       firstFrame: 0
       lastFrame: 592
@@ -188,11 +178,127 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: OE_Character_01|Sad_Idle_001
-      takeName: OE_Character_01|Sad_Idle_001
+      name: Sit_down
+      takeName: Sit_down
       internalID: 6675172054745440705
       firstFrame: 0
-      lastFrame: 158
+      lastFrame: 174
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Sitting_to_Cheer
+      takeName: Sitting_to_Cheer
+      internalID: 2040690760423629700
+      firstFrame: 0
+      lastFrame: 146
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Sitting_to_typing
+      takeName: Sitting_to_typing
+      internalID: 4481359806802313833
+      firstFrame: 0
+      lastFrame: 89
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: typing_to_sitting
+      takeName: typing_to_sitting
+      internalID: 6921183764548367145
+      firstFrame: 0
+      lastFrame: 28
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Typing
+      takeName: Typing
+      internalID: 7471615453595813614
+      firstFrame: 0
+      lastFrame: 1428
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

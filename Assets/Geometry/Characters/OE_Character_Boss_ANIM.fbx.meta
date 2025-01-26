@@ -19,17 +19,17 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'OE_Character_Boss|Boss_Leave' has import animation
-      warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'mixamorig:RightArm' has scale
-      animation that will be discarded.\n\t'mixamorig:LeftUpLeg' has translation
-      animation that will be discarded.\n\t'mixamorig:RightUpLeg' has translation
-      animation that will be discarded.\n\nClip 'OE_Character_Boss|Boss_Peek' has
-      import animation warnings that might lower retargeting quality:\nNote: Activate
-      translation DOF on avatar to improve retargeting quality.\n\t'mixamorig:RightShoulder'
-      has scale animation that will be discarded.\n\t'mixamorig:RightArm' has scale
-      animation that will be discarded.\n\t'mixamorig:LeftUpLeg' has translation
-      animation that will be discarded.\n"
+    animationImportWarnings: "\nClip 'Boss_Leave' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'mixamorig:RightArm' has scale animation
+      that will be discarded.\n\t'mixamorig:LeftUpLeg' has translation animation
+      that will be discarded.\n\t'mixamorig:RightUpLeg' has translation animation
+      that will be discarded.\n\nClip 'Boss_Peek' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'mixamorig:RightShoulder' has scale animation
+      that will be discarded.\n\t'mixamorig:RightArm' has scale animation that will
+      be discarded.\n\t'mixamorig:LeftUpLeg' has translation animation that will
+      be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -43,8 +43,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: OE_Character_Boss|Boss_T-pose
-      takeName: OE_Character_Boss|Boss_T-pose
+      name: Boss_T-pose
+      takeName: Boss_T-pose
       internalID: 2019603273096731560
       firstFrame: 0
       lastFrame: 2
@@ -72,8 +72,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: OE_Character_Boss|Boss_Leave
-      takeName: OE_Character_Boss|Boss_Leave
+      name: Boss_Leave
+      takeName: Boss_Leave
       internalID: 5978084307357345996
       firstFrame: 0
       lastFrame: 29
@@ -101,8 +101,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: OE_Character_Boss|Boss_Peek
-      takeName: OE_Character_Boss|Boss_Peek
+      name: Boss_Peek
+      takeName: Boss_Peek
       internalID: -868975517844131797
       firstFrame: 0
       lastFrame: 34

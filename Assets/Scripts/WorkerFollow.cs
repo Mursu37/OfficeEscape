@@ -9,11 +9,13 @@ public class WorkerFollow : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private AddFollowers addFollowers;
     private NavMeshAgent agent;
+    private Vector3 defaultPosition;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        defaultPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -37,6 +39,11 @@ public class WorkerFollow : MonoBehaviour
                 agent.SetDestination(player.position);
             }
         }
-        
+    }
+    
+    public void FollowerDetected()
+    {
+        addFollowers.RemoveFollower(gameObject);
+        agent.SetDestination(defaultPosition);
     }
 }

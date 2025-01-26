@@ -78,4 +78,9 @@ public class AddFollowers : MonoBehaviour
             //if(popping.isPlaying) popping.Stop();
         }
     }
+
+    public void RemoveFollower(GameObject follower)
+    {
+        followers.Remove(follower);
+    }
 }

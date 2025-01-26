@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using Player;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class Detect : MonoBehaviour
 {
@@ -14,6 +12,8 @@ public class Detect : MonoBehaviour
     [SerializeField] private Movement movement;
 
     private bool playerDetected = false;
+
+    private List<GameObject> detectedFollowers = new List<GameObject>();
 
     private void Start()
     {
@@ -29,6 +29,7 @@ public class Detect : MonoBehaviour
             Vector3 directionToPlayer = (player.position - transform.position).normalized;
             if (!Physics.Raycast(transform.position, directionToPlayer, detectionDistance, obstacleLayer))
             {
+
                 if (!playerDetected)
                 {
                     EndGame();
@@ -44,16 +45,30 @@ public class Detect : MonoBehaviour
                         Vector3 directionToFollower = (follower.transform.position - transform.position).normalized;
                         if (!Physics.Raycast(transform.position, directionToFollower, detectionDistance, obstacleLayer))
                         {
+                            detectedFollowers.Add(follower);
+                            /*
                             if (!playerDetected)
                             {
                                 EndGame();
                                 playerDetected = true;
                             }
+                            */
                         }
                     }
                 }
+                
+                HandleDetectedFollowers();
             }
         }
+    }
+
+    private void HandleDetectedFollowers()
+    {
+        foreach (var follower in detectedFollowers)
+        {
+            follower.GetComponent<WorkerFollow>().FollowerDetected();
+        }
+        detectedFollowers.Clear();
     }
 
     private void EndGame()

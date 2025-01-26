@@ -17,6 +17,8 @@ public class BossTimer : MonoBehaviour
 
     [SerializeField] private AudioClip[] bossAngryClips;
 
+    [SerializeField] private Animator clockAnimator;
+
     private Detect detect;
     private Animator animator;
 
@@ -40,6 +42,7 @@ public class BossTimer : MonoBehaviour
             remainingTime -= Time.deltaTime;
             int timeAsInt = Mathf.FloorToInt(remainingTime);
             timer.text = timeAsInt.ToString();
+            clockAnimator.Play("Action");
         }
         else
         {
@@ -69,6 +72,7 @@ public class BossTimer : MonoBehaviour
             }
             else
             {
+                clockAnimator.Play("Idle");
                 animator.Play("Leave");
                 doorAnimator.Play("CloseSlam");
                 bossMusic.Stop();

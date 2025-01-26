@@ -7,8 +7,11 @@ public class RemainingWorkers : MonoBehaviour
 {
     public int maxWorkers;
     [SerializeField] private AddFollowers addFollowers;
+    [SerializeField] private Animator elevatorDoor;
     public bool canUseElevator = false;
     private TextMeshProUGUI remaining;
+
+    [SerializeField] private AudioSource elevatorBell;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +26,14 @@ public class RemainingWorkers : MonoBehaviour
 
         if (addFollowers.followers.Count >= maxWorkers)
         {
+            if (!canUseElevator && elevatorBell != null) elevatorBell.Play();
             canUseElevator = true;
         }
+        else
+        {
+            canUseElevator = false;
+        }
+
+        elevatorDoor.SetBool("isOpen", canUseElevator);
     }
 }

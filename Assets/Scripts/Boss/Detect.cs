@@ -12,28 +12,40 @@ public class Detect : MonoBehaviour
     [SerializeField] private Movement movement;
 
     private bool playerDetected = false;
-
     private List<GameObject> detectedFollowers = new List<GameObject>();
+
+    [SerializeField] private float timeSinceLastRaycast = 0f;
 
     private void Start()
     {
         enabled = false;
     }
 
+    private void OnEnable()
+    {
+        timeSinceLastRaycast = 0f;
+    }
+
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, player.position);
+        timeSinceLastRaycast += Time.deltaTime;
 
-        if (distance < detectionDistance)
+        if (timeSinceLastRaycast >= 1)
         {
-            Vector3 directionToPlayer = (player.position - transform.position).normalized;
-            if (!Physics.Raycast(transform.position, directionToPlayer, detectionDistance, obstacleLayer))
-            {
+            timeSinceLastRaycast = 0f;
 
-                if (!playerDetected)
+            float distance = Vector3.Distance(transform.position, player.position);
+
+            if (distance < detectionDistance)
+            {
+                Vector3 directionToPlayer = (player.position - transform.position).normalized;
+                if (!Physics.Raycast(transform.position, directionToPlayer, detectionDistance, obstacleLayer))
                 {
-                    EndGame();
-                    playerDetected = true;
+                    if (!playerDetected)
+                    {
+                        EndGame();
+                        playerDetected = true;
+                    }
                 }
             }
             else
@@ -46,17 +58,10 @@ public class Detect : MonoBehaviour
                         if (!Physics.Raycast(transform.position, directionToFollower, detectionDistance, obstacleLayer))
                         {
                             detectedFollowers.Add(follower);
-                            /*
-                            if (!playerDetected)
-                            {
-                                EndGame();
-                                playerDetected = true;
-                            }
-                            */
                         }
                     }
                 }
-                
+
                 HandleDetectedFollowers();
             }
         }

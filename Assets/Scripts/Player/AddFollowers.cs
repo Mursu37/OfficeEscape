@@ -14,6 +14,8 @@ public class AddFollowers : MonoBehaviour
 
     private Animator animator;
 
+    private bool hasPlayedPopping = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,14 +34,15 @@ public class AddFollowers : MonoBehaviour
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, 
                     LayerMask.GetMask("Worker", "Outlined")))
             {
+                outline.AddOutline();
                 hold.gameObject.SetActive(true);
                 if (Input.GetButton("Fire1"))
                 {
-                    //if (popping != null && !popping.isPlaying)
-                    //{
-                    //    popping.Play();
-                    //}
-                    outline.AddOutline();
+                    if (popping != null && !popping.isPlaying && !hasPlayedPopping)
+                    {
+                        popping.Play();
+                        hasPlayedPopping = true;
+                    }
                     holdTime += Time.deltaTime;
                     holdFill.fillAmount = holdTime;
                     animator.SetBool("IsTalking", true);
@@ -56,20 +59,22 @@ public class AddFollowers : MonoBehaviour
                 else
                 {
                     holdTime = 0f;
-                    outline.RemoveOutline();
-                    //popping.Stop();
+                    //outline.RemoveOutline();
+                    popping.Stop();
+                    hasPlayedPopping = false;
                 }
             }
             else
             {
                 hold.gameObject.SetActive(false);
                 outline.RemoveOutline();
+                hasPlayedPopping = false;
                 //if(popping.isPlaying) popping.Stop();
             }
         }
         else
         {
-            outline.RemoveOutline();
+            //outline.RemoveOutline();
             //if(popping.isPlaying) popping.Stop();
         }
     }

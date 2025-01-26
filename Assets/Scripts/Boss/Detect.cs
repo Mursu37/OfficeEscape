@@ -29,7 +29,6 @@ public class Detect : MonoBehaviour
             Vector3 directionToPlayer = (player.position - transform.position).normalized;
             if (!Physics.Raycast(transform.position, directionToPlayer, detectionDistance, obstacleLayer))
             {
-
                 if (!playerDetected)
                 {
                     EndGame();
@@ -45,7 +44,6 @@ public class Detect : MonoBehaviour
                         Vector3 directionToFollower = (follower.transform.position - transform.position).normalized;
                         if (!Physics.Raycast(transform.position, directionToFollower, detectionDistance, obstacleLayer))
                         {
-
                             if (!playerDetected)
                             {
                                 EndGame();

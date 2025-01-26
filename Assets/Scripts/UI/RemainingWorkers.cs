@@ -17,6 +17,7 @@ public class RemainingWorkers : MonoBehaviour
     void Start()
     {
         remaining = GetComponent<TextMeshProUGUI>();
+        elevatorDoor.Play("DoorClosed", 0, 1);
     }
 
     // Update is called once per frame
